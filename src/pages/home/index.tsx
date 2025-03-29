@@ -37,7 +37,7 @@ const rewards = [
         nftReward: "Red Diamond NFT",
         imageUrl: redNFT,
         tierIndex: 3,
-        beneifits: [
+        benefits: [
             "200% of Staking Reward",
             "5,000% of Community Reward",
             "Exclusive Red Diamond benefits in the jewelry shop."
