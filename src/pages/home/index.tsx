@@ -13,35 +13,48 @@ const rewards = [
         nftReward: "Black Diamond NFT",
         imageUrl: blackNFT,
         tierIndex: 0,
-        benefits: ["Access to Bronze Club events", "Monthly digital collectibles", "Community forum access"]
+        benefits: ["100% staking reward", "100% of Community Reward", "Exclusive Black Diamond benefits in the jewelry shop."]
     },
     {
         tokenAmount: "5,000",
         nftReward: "Green Diamond NFT",
         imageUrl: greenNFT,
         tierIndex: 1,
-        benefits: ["All Bronze benefits", "Priority support", "Exclusive Silver merchandise", "Quarterly airdrops"]
-    },
-    {
+        benefits: ["150% of Staking Reward", "250% of Community Reward", "Exclusive Green Diamond benefits in the jewelry shop."],
+    }, {
         tokenAmount: "25,000",
         nftReward: "Blue Diamond NFT",
         imageUrl: blueNFT,
         tierIndex: 2,
-        benefits: ["All Silver benefits", "VIP access to events", "Early access to new features", "Diamond Club voting rights"]
+        benefits: [
+            "175% of Staking Reward",
+            "1,500% of Community Reward",
+            "Exclusive Blue Diamond benefits in the jewelry shop."
+        ]
     },
     {
         tokenAmount: "100,000",
         nftReward: "Red Diamond NFT",
         imageUrl: redNFT,
         tierIndex: 3,
-        benefits: ["All Silver benefits", "VIP access to events", "Early access to new features", "Diamond Club voting rights"]
+        beneifits: [
+            "200% of Staking Reward",
+            "5,000% of Community Reward",
+            "Exclusive Red Diamond benefits in the jewelry shop."
+        ]
     },
     {
         tokenAmount: "25,000",
         nftReward: "Flawless Diamond NFT",
         imageUrl: flawlessNFT,
         tierIndex: 4,
-        benefits: ["All Silver benefits", "VIP access to events", "Early access to new features", "Diamond Club voting rights"]
+        benefits: [
+            "300% of Staking Reward",
+            "Split of 50% generated fees",
+            "Split of 10% of global performance",
+            "Exclusive Flawless Diamond benefits in the jewelry shop.",
+            "Place in the Diamond Club Founder Circle"
+        ]
     }
 ];
 
@@ -54,7 +67,7 @@ const howItWorksSteps = [
     {
         icon: <CheckCircleOutlined style={{ fontSize: '2rem' }} />,
         title: "Connect Wallet",
-        description: "Link your compatible wallet to our platform to verify your token holdings."
+        description: "Click on “Connect wallet” in the top right corner to verify your token holdings.If you do not have a wallet you can connect please click on 'I can not connect my wallet'  and provide the wallet address where you hold your Diamond Tokens and we will check if you qualify for an NFT reward. "
     },
     {
         icon: <GiftOutlined style={{ fontSize: '2rem' }} />,
@@ -73,10 +86,15 @@ export const Home = () => {
             <main className="container mx-auto px-4 pt-20 pb-16">
                 <div className="text-center mb-16 max-w-3xl mx-auto">
                     <h1 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-                        NFT Rewards
+                        Claim your Membership level
+
                     </h1>
                     <p className="text-gray-300 text-lg leading-relaxed">
-                        Welcome to the Diamond Token Rewards Program! As a valued holder, claim your exclusive NFT that unlocks premium benefits in the luxury Diamond Club.
+                        At this page you can claim your NFT reward that will open the doors to exclusive membership levels in Diamond Club and the Diamond Reward program.
+
+                        Your membership level in Diamond Club will give you passive residual community reward.
+
+                        To claim your NFT you need to purchase a certain number of Diamond Tokens. To learn more about how to get the NFT reward you ca
                     </p>
                 </div>
 
@@ -142,7 +160,8 @@ export const Home = () => {
             <div className="bg-gray-800 py-8">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-xl font-bold mb-4">Diamond Token Rewards</h2>
-                    <p className="text-gray-300 max-w-2xl mx-auto">Join thousands of Diamond Token holders who are already enjoying exclusive benefits and experiences.</p>
+                    <p className="text-gray-300 max-w-2xl mx-auto">Claim your membership reward and join our community. Once you have enrolled you can earn more rewards from our Diamond Reward program. 
+                    </p>
                 </div>
             </div>
         </div>
