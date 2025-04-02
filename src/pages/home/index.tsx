@@ -1,10 +1,10 @@
 import Header from '../../components/Header';
 import RewardCard from '../../components/RewardCard';
 import redNFT from "../../../assets/red.jpeg";
-import greenNFT from "../../../assets/green.jpeg";
-import blueNFT from "../../../assets/blue.jpeg";
-import blackNFT from "../../../assets/black.jpeg";
-import flawlessNFT from "../../../assets/flawless.jpeg";
+import greenNFT from "../../../assets/green.png";
+import blueNFT from "../../../assets/blue.png";
+import blackNFT from "../../../assets/black.png";
+import flawlessNFT from "../../../assets/flawless.png";
 import { RocketOutlined, CheckCircleOutlined, GiftOutlined } from '@ant-design/icons';
 
 const rewards = [

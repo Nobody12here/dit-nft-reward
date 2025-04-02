@@ -128,7 +128,7 @@ const RewardCard: React.FC<RewardCardProps> = ({
           <img
             src={imageUrl}
             alt={`${nftReward} - NFT Reward`}
-            className={`w-full h-48 object-cover rounded-lg ${isClaimed ? "" : "filter brightness-90"}`}
+            className={`w-full object-cover rounded-lg ${isClaimed ? "" : "filter brightness-90"}`}
           />
           
           {isClaimed && (
