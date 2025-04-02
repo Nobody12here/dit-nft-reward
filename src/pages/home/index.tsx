@@ -146,7 +146,7 @@ export const Home = () => {
                         </div>
                         <div className="bg-gray-800 rounded-xl p-6">
                             <h3 className="text-lg font-bold mb-3">Which wallets are supported?</h3>
-                            <p className="text-gray-300">We support MetaMask, Coinbase Wallet, Trust Wallet, and other major Web3 wallets compatible with Ethereum and Polygon networks.</p>
+                            <p className="text-gray-300">We support MetaMask, Coinbase Wallet, Trust Wallet, and other major Web3 wallets compatible with Binance Smart Chain network.</p>
                         </div>
                         <div className="bg-gray-800 rounded-xl p-6">
                             <h3 className="text-lg font-bold mb-3">Are the NFTs transferable?</h3>
