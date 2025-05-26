@@ -5,7 +5,10 @@ import greenNFT from "../../../assets/green.png";
 import blueNFT from "../../../assets/blue.png";
 import blackNFT from "../../../assets/black.png";
 import flawlessNFT from "../../../assets/flawless.png";
+import { WalletInputModal } from '../../components/WalletInputModal';
 import { RocketOutlined, CheckCircleOutlined, GiftOutlined } from '@ant-design/icons';
+import { useState } from 'react';
+import { Address } from 'viem';
 
 const rewards = [
     {
@@ -78,6 +81,19 @@ const howItWorksSteps = [
 
 
 export const Home = () => {
+    const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
+    const [formData, setFormData] = useState({
+        walletAddress: '' as Address,
+        email: '',
+        nftType: '',
+        tokenCount: 0
+    });
+
+    const handleSubmit = () => {
+        console.log('Form submitted:', formData);
+        // Add your submission logic here
+        setIsWalletModalOpen(false);
+    };
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
             <Header />
@@ -89,13 +105,19 @@ export const Home = () => {
                         Claim your Membership level
 
                     </h1>
-                    <p className="text-gray-300 text-lg leading-relaxed">
+                    <p className="text-gray-300 text-lg leading-relaxed mb-6">
                         At this page you can claim your NFT reward that will open the doors to exclusive membership levels in Diamond Club and the Diamond Reward program.
 
                         Your membership level in Diamond Club will give you passive residual community reward.
 
                         To claim your NFT you need to purchase a certain number of Diamond Tokens. To learn more about how to get the NFT reward you ca
                     </p>
+                    <button
+                        className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-bold text-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                        onClick={() => setIsWalletModalOpen(true)}
+                    >
+                        Claim NFT Reward
+                    </button>
                 </div>
 
                 {/* Rewards Section */}
@@ -154,13 +176,20 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
+                <WalletInputModal
+                    isOpen={isWalletModalOpen}
+                    formData={formData}
+                    onClose={() => setIsWalletModalOpen(false)}
+                    setFormData={setFormData}
+                    onSubmit={handleSubmit}
+                />
             </main>
 
             {/* Footer */}
             <div className="bg-gray-800 py-8">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-xl font-bold mb-4">Diamond Token Rewards</h2>
-                    <p className="text-gray-300 max-w-2xl mx-auto">Claim your membership reward and join our community. Once you have enrolled you can earn more rewards from our Diamond Reward program. 
+                    <p className="text-gray-300 max-w-2xl mx-auto">Claim your membership reward and join our community. Once you have enrolled you can earn more rewards from our Diamond Reward program.
                     </p>
                 </div>
             </div>

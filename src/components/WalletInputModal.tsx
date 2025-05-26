@@ -1,48 +1,118 @@
 import React from 'react';
 import { Address } from 'viem';
 
+interface FormData {
+    walletAddress: Address;
+    email: string;
+    nftType: string;
+    tokenCount: number;
+}
+
 interface WalletInputFormProps {
     isOpen: boolean;
-    walletAddress: Address;
+    formData: FormData;
     onClose: () => void;
-    setWalletAddress: (value: Address) => void;
+    setFormData: (data: FormData) => void;
     onSubmit: () => void;
 }
 
+const NFT_TYPES = ['red', 'blue', 'green', 'yellow', 'purple', 'black', 'white'];
+
 export const WalletInputModal: React.FC<WalletInputFormProps> = ({
     isOpen,
-    walletAddress,
+    formData,
     onClose,
-    setWalletAddress,
+    setFormData,
     onSubmit
 }) => {
     if (!isOpen) return <></>;
+    
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: name === 'tokenCount' ? Number(value) : value
+        });
+    };
+
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-gray-800 rounded-lg p-6 w-full max-w-sm">
-                <h2 className="text-lg font-semibold mb-4">Enter Wallet Address</h2>
-                <input
-                    type="text"
-                    value={walletAddress}
-                    onChange={(e) => setWalletAddress(e.target.value as Address)}
-                    placeholder="0x..."
-                    className="w-full px-3 py-2 border rounded mb-4"
-                />
+                <h2 className="text-lg font-semibold mb-4">Enter Your Details</h2>
+                
+                {/* Email Input */}
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-1">Email Address</label>
+                    <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="your@email.com"
+                        className="w-full px-3 py-2 border rounded bg-gray-700 border-gray-600"
+                    />
+                </div>
+                
+                {/* Wallet Address Input */}
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-1">Wallet Address</label>
+                    <input
+                        type="text"
+                        name="walletAddress"
+                        value={formData.walletAddress}
+                        onChange={handleInputChange}
+                        placeholder="0x..."
+                        className="w-full px-3 py-2 border rounded bg-gray-700 border-gray-600"
+                    />
+                </div>
+                
+                {/* NFT Type Dropdown */}
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-1">NFT Type</label>
+                    <select
+                        name="nftType"
+                        value={formData.nftType}
+                        onChange={handleInputChange}
+                        className="w-full px-3 py-2 border rounded bg-gray-700 border-gray-600"
+                    >
+                        <option value="">Select a color</option>
+                        {NFT_TYPES.map((type) => (
+                            <option key={type} value={type}>
+                                {type.charAt(0).toUpperCase() + type.slice(1)}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                
+                {/* Token Count Input */}
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-1">Number of Tokens</label>
+                    <input
+                        type="number"
+                        name="tokenCount"
+                        value={formData.tokenCount}
+                        onChange={handleInputChange}
+                        min="0"
+                        placeholder="0"
+                        className="w-full px-3 py-2 border rounded bg-gray-700 border-gray-600"
+                    />
+                </div>
+                
                 <div className="flex justify-end gap-2">
                     <button
                         onClick={onClose}
-                        className="px-4 py-2 text-sm text-gray-700 hover:text-black"
+                        className="px-4 py-2 text-sm text-gray-300 hover:text-white"
                     >
                         Cancel
                     </button>
                     <button
                         onClick={onSubmit}
-                        className="px-4 py-2 text-sm bg-black text-white rounded hover:bg-gray-800"
+                        className="px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
                     >
                         Submit
                     </button>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
