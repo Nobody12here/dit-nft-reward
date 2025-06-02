@@ -25,7 +25,7 @@ const Header: React.FC = () => {
           <div className='flex items-center gap-4'>
             <ConnectKitButton />
             <button onClick={() => setIsModalOpen(true)} className='text-white text-sm border border-white px-3 py-2 rounded hover:bg-white hover:text-black transition'>
-              Don’t have a wallet?
+              I can't connect my wallet!
             </button>
           </div>
         </div>
