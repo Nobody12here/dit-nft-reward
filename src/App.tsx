@@ -1,6 +1,7 @@
 import { ConfigProvider, theme } from 'antd';
-import {Home} from './pages/home/index';
+import { Home } from './pages/home/index';
 import { Web3Provider } from './config';
+import { ToastContainer } from "react-toastify";
 
 function App() {
 
@@ -15,7 +16,10 @@ function App() {
           },
         }}
       >
-        <Home/>
+        <ToastContainer>
+
+          <Home />
+        </ToastContainer>
       </ConfigProvider>
     </Web3Provider>
 
