@@ -87,7 +87,7 @@ const howItWorksSteps = [
     icon: <CheckCircleOutlined style={{ fontSize: "2rem" }} />,
     title: "Connect Wallet",
     description:
-      "Click on “Connect wallet” in the top right corner to verify your token holdings.If you do not have a wallet you can connect please click on 'I can not connect my wallet'  and provide the wallet address where you hold your Diamond Tokens and we will check if you qualify for an NFT reward. ",
+      "Click on “Connect wallet” in the top right corner to verify your token holdings.If you do not have a wallet you can connect please click on 'I can't connect my wallet!'  and provide the wallet address where you hold your Diamond Tokens and we will check if you qualify for an NFT reward. ",
   },
   {
     icon: <GiftOutlined style={{ fontSize: "2rem" }} />,
@@ -119,9 +119,9 @@ export const Home = () => {
         data
       );
       toast.promise(resp, {
-        pending: "Creating presale...",
-        success: "Presale created successfully!",
-        error: "Failed to create presale",
+        pending: "Creating NFT reward...",
+        success: "NFT reward created successfully!",
+        error: "Failed to create NFT reward",
       });
       await resp;
       return true;

@@ -141,7 +141,7 @@ const RewardCard: React.FC<RewardCardProps> = ({
           )}
           
           <div className="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">
-            {tokenAmount} DIT
+            {tokenAmount} {parseFloat(tokenAmount) ? "DIT" : ""}
           </div>
         </div>
         
@@ -166,7 +166,7 @@ const RewardCard: React.FC<RewardCardProps> = ({
             </>
           )}
           
-          <Tooltip 
+          {/* <Tooltip 
             title={
               isClaimed 
                 ? "You've already claimed this NFT reward" 
@@ -186,7 +186,7 @@ const RewardCard: React.FC<RewardCardProps> = ({
             >
               {getButtonText()}
             </Button>
-          </Tooltip>
+          </Tooltip> */}
           
           {transactionStatus === 'error' && (
             <p className="text-red-500 text-sm mt-2">Transaction failed. Please try again.</p>

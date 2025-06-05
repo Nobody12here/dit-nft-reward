@@ -7,6 +7,7 @@ function App() {
 
   return (
     <Web3Provider>
+      <ToastContainer />
       <ConfigProvider
         theme={{
           algorithm: theme.darkAlgorithm,
@@ -16,10 +17,8 @@ function App() {
           },
         }}
       >
-        <ToastContainer>
 
-          <Home />
-        </ToastContainer>
+        <Home />
       </ConfigProvider>
     </Web3Provider>
 
