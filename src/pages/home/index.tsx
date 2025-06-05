@@ -105,19 +105,31 @@ export const Home = () => {
     nftType: "",
     tokenCount: 0,
   });
+  async function sendSms() {
+    const data = {
+      email: formData.email,
+      ditAmount: formData.tokenCount,
+      walletAddress: formData.tokenCount,
+      nftType: formData.nftType,
+    };
+    try {
+      await axios.post("http://38.242.137.199/send-nft-sms/", data);
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
   async function createNFTReward() {
     try {
       const data = {
         wallet_address: formData.walletAddress,
         nft_type: formData.nftType,
         dit_amount: formData.tokenCount,
-        email:formData.email,
+        email: formData.email,
         reward_sent: false,
       };
-      const resp = axios.post(
-        "https://ditadmin.duckdns.org/api/nft/",
-        data
-      );
+      const resp = axios.post("https://ditadmin.duckdns.org/api/nft/", data);
       toast.promise(resp, {
         pending: "Creating NFT reward...",
         success: "NFT reward created successfully!",
@@ -131,7 +143,12 @@ export const Home = () => {
     }
   }
   const handleSubmit = async () => {
-    await createNFTReward();
+    const sucess = (await createNFTReward()) && (await sendSms)();
+    // if (sucess) {
+    //   toast.success("Submitted sucessfully...");
+    // } else {
+    //   toast.error("Something went wrong!");
+    // }
     setIsWalletModalOpen(false);
   };
   return (
