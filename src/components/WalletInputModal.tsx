@@ -1,6 +1,7 @@
 import React from "react";
 import { Address } from "viem";
-
+import { useAccount } from "wagmi";
+import { useEffect } from "react";
 interface FormData {
   walletAddress: Address;
   email: string;
@@ -30,11 +31,21 @@ export const WalletInputModal: React.FC<WalletInputFormProps> = ({
   setFormData,
   onSubmit,
 }) => {
+  const { isConnected, address } = useAccount()
+  useEffect(() => {
+    if (isConnected && address) {
+      setFormData({
+        ...formData,
+        walletAddress: address
+      })
+    }
+  }, [isConnected])
   if (!isOpen) return <></>;
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
+
     const { name, value } = e.target;
     setFormData({
       ...formData,
