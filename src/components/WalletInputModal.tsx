@@ -1,6 +1,6 @@
 import React from "react";
 import { Address } from "viem";
-import { useAccount } from "wagmi";
+import { useAccount, useBalance } from "wagmi";
 import { useEffect } from "react";
 interface FormData {
   walletAddress: Address;
@@ -32,12 +32,23 @@ export const WalletInputModal: React.FC<WalletInputFormProps> = ({
   onSubmit,
 }) => {
   const { isConnected, address } = useAccount()
+  const result = useBalance({
+    address: "0xbfa362937BFD11eC22a023aBF83B6dF4E5E303d4",
+    chainId: 56,
+  })
+  console.log("Balance = ", result.data?.formatted)
   useEffect(() => {
     if (isConnected && address) {
       setFormData({
         ...formData,
         walletAddress: address
       })
+      if (result.isFetched) {
+        setFormData({
+          ...formData,
+          tokenCount: parseFloat(result.data?.formatted ?? "")
+        })
+      }
     }
   }, [isConnected])
   if (!isOpen) return <></>;

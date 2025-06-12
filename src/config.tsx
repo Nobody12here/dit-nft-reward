@@ -14,7 +14,7 @@ export const config = createConfig(
     transports: {
       // RPC URL for each chain
       [bsc.id]: http(
-        `https://bnb-mainnet.g.alchemy.com/v2/"demm1uAdY6S0v_bLwu_B_mHUX5MtExmE`
+        `https://bnb-mainnet.g.alchemy.com/v2/demm1uAdY6S0v_bLwu_B_mHUX5MtExmE`
       ),
       [sepolia.id]: http(
         `https://eth-sepolia.g.alchemy.com/v2/demm1uAdY6S0v_bLwu_B_mHUX5MtExmE`
