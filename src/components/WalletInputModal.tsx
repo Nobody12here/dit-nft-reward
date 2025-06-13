@@ -33,10 +33,11 @@ export const WalletInputModal: React.FC<WalletInputFormProps> = ({
 }) => {
   const { isConnected, address } = useAccount();
   const result = useBalance({
-    address: "0xbfa362937BFD11eC22a023aBF83B6dF4E5E303d4",
+    address:address,
+    token: "0xbfa362937BFD11eC22a023aBF83B6dF4E5E303d4",
     chainId: 56,
   });
-  console.log("Balance = ", result.data?.formatted);
+  console.log("Balance = ", result.data);
   useEffect(() => {
     if (isConnected && address) {
       setFormData({
