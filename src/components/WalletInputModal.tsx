@@ -31,32 +31,27 @@ export const WalletInputModal: React.FC<WalletInputFormProps> = ({
   setFormData,
   onSubmit,
 }) => {
-  const { isConnected, address } = useAccount()
+  const { isConnected, address } = useAccount();
   const result = useBalance({
-    address: "0xbfa362937BFD11eC22a023aBF83B6dF4E5E303d4",
+    address:address,
+    token: "0xbfa362937BFD11eC22a023aBF83B6dF4E5E303d4",
     chainId: 56,
-  })
-  console.log("Balance = ", result.data?.formatted)
+  });
+  console.log("Balance = ", result.data);
   useEffect(() => {
     if (isConnected && address) {
       setFormData({
         ...formData,
-        walletAddress: address
-      })
-      if (result.isFetched) {
-        setFormData({
-          ...formData,
-          tokenCount: parseFloat(result.data?.formatted ?? "")
-        })
-      }
+        walletAddress: address,
+        tokenCount: parseFloat(result.data?.formatted ?? ""),
+      });
     }
-  }, [isConnected])
+  }, [isConnected, result.isFetched]);
   if (!isOpen) return <></>;
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-
     const { name, value } = e.target;
     setFormData({
       ...formData,
