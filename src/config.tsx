@@ -25,12 +25,12 @@ export const config = createConfig(
     walletConnectProjectId: "a184a3972bd373f81a425026c69e42c4",
 
     // Required App Info
-    appName: "Your App Name",
+    appName: "DiamondClub",
 
     // Optional App Info
-    appDescription: "Your App Description",
-    appUrl: "https://family.co", // your app's url
-    appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
+    appDescription: "",
+    appUrl: "http://diamondclub.shop/", // your app's url
+    appIcon: "https://diamondclub.shop/wp-content/uploads/2025/04/follow-dc-some-CAPTION-2-300x300.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
   })
 );
 
