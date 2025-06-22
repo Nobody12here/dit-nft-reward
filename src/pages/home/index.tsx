@@ -4,7 +4,7 @@ import redNFT from "../../../assets/red.jpeg";
 import greenNFT from "../../../assets/green.png";
 import blueNFT from "../../../assets/blue.png";
 import blackNFT from "../../../assets/black.png";
-import bg from "../../../assets/black.png";
+import bg from "../../../assets/bg.jpeg";
 import flawlessNFT from "../../../assets/flawless.png";
 import { WalletInputModal } from "../../components/WalletInputModal";
 import {
@@ -154,7 +154,7 @@ export const Home = () => {
   };
   console.log("formData", formData);
   return (
-    <div className={`min-h-screen bg-[url('../../../assets/bg.jpeg')] bg-cover text-white`}>
+    <div className={`min-h-screen text-white`} style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <Header />
 
       {/* Hero Section */}
