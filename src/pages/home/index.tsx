@@ -4,6 +4,7 @@ import redNFT from "../../../assets/red.jpeg";
 import greenNFT from "../../../assets/green.png";
 import blueNFT from "../../../assets/blue.png";
 import blackNFT from "../../../assets/black.png";
+import bg from "../../../assets/black.png";
 import flawlessNFT from "../../../assets/flawless.png";
 import { WalletInputModal } from "../../components/WalletInputModal";
 import {
@@ -151,8 +152,9 @@ export const Home = () => {
     // }
     setIsWalletModalOpen(false);
   };
+  console.log("formData", formData);
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
+    <div className={`min-h-screen bg-[url('../../../assets/bg.jpeg')] bg-cover text-white`}>
       <Header />
 
       {/* Hero Section */}
