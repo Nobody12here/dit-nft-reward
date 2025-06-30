@@ -31,9 +31,18 @@ export const WalletInputModal: React.FC<WalletInputFormProps> = ({
   setFormData,
   onSubmit,
 }) => {
+  const isFormValid = () => {
+    return (
+      formData.email.trim() !== "" &&
+      formData.walletAddress.trim() !== "" &&
+      formData.nftType.trim() !== "" &&
+      formData.tokenCount > 0
+    );
+  };
+
   const { isConnected, address } = useAccount();
   const result = useBalance({
-    address:address,
+    address: address,
     token: "0xbfa362937BFD11eC22a023aBF83B6dF4E5E303d4",
     chainId: 56,
   });
@@ -73,6 +82,7 @@ export const WalletInputModal: React.FC<WalletInputFormProps> = ({
             type="email"
             name="email"
             value={formData.email}
+            required
             onChange={handleInputChange}
             placeholder="your@email.com"
             className="w-full px-3 py-2 border rounded bg-gray-700 border-gray-600"
@@ -136,12 +146,21 @@ export const WalletInputModal: React.FC<WalletInputFormProps> = ({
             Cancel
           </button>
           <button
-            onClick={onSubmit}
-            className="px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
+            onClick={() => {
+              if (isFormValid()) {
+                onSubmit();
+              } else {
+                alert("Please fill all required fields correctly.");
+              }
+            }}
+            disabled={!isFormValid()}
+            className={`px-4 py-2 text-sm text-white rounded ${isFormValid() ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-600 cursor-not-allowed"
+              }`}
           >
             Submit
           </button>
         </div>
+
       </div>
     </div>
   );
