@@ -26,9 +26,9 @@ const rewards = [
     imageUrl: blackNFT,
     tierIndex: 0,
     benefits: [
-      "100% staking reward",
-      "100% of Community Reward",
-      "Exclusive Black Diamond benefits in the jewelry shop.",
+      "1 vote in DIORA Governance",
+      "100% of given Community Reward",
+      "100% of given Staking Reward*",
     ],
   },
   {
@@ -37,9 +37,9 @@ const rewards = [
     imageUrl: greenNFT,
     tierIndex: 1,
     benefits: [
-      "150% of Staking Reward",
-      "250% of Community Reward",
-      "Exclusive Green Diamond benefits in the jewelry shop.",
+      "2.5 votes in DIORA Governance",
+      "250% of given Community Reward",
+      "125% of given Staking Reward*",
     ],
   },
   {
@@ -48,9 +48,9 @@ const rewards = [
     imageUrl: blueNFT,
     tierIndex: 2,
     benefits: [
-      "175% of Staking Reward",
-      "1,500% of Community Reward",
-      "Exclusive Blue Diamond benefits in the jewelry shop.",
+      "15 votes in DIORA Governance",
+      "1500% of given Community Reward",
+      "150% of given Staking Reward*",
     ],
   },
   {
@@ -59,9 +59,9 @@ const rewards = [
     imageUrl: redNFT,
     tierIndex: 3,
     benefits: [
-      "200% of Staking Reward",
-      "5,000% of Community Reward",
-      "Exclusive Red Diamond benefits in the jewelry shop.",
+      "50 votes in DIORA Governance",
+      "5000% of given Community Reward",
+      "200% of given Staking Reward*",
     ],
   },
   {
@@ -70,14 +70,14 @@ const rewards = [
     imageUrl: flawlessNFT,
     tierIndex: 4,
     benefits: [
-      "300% of Staking Reward",
-      "Split of 50% generated fees",
-      "Split of 10% of global performance",
-      "Exclusive Flawless Diamond benefits in the jewelry shop.",
-      "Place in the Diamond Club Founder Circle",
+      "Pro-rata share of 80% of all governance votes",
+      "Maximum rewards",
+      "Maximum utility",
+      "Maximum influence",
     ],
   },
 ];
+
 
 const howItWorksSteps = [
   {
@@ -96,7 +96,7 @@ const howItWorksSteps = [
     icon: <GiftOutlined style={{ fontSize: "2rem" }} />,
     title: "Claim NFT",
     description:
-      "Once verified, choose and claim your exclusive Diamond Club NFT that corresponds to your token level.",
+      "Once verified, choose and claim your exclusive Diamond Club NFT that corresponds to your token level so you can enjoy the rewards and utility in both DIORA and Diamond Club.",
   },
 ];
 
@@ -146,7 +146,7 @@ export const Home = () => {
     }
   }
   const handleSubmit = async () => {
-    const sucess = (await createNFTReward()) && (await sendSms)();
+    const sucess = (await createNFTReward()) && (await sendSms());
     // if (sucess) {
     //   toast.success("Submitted sucessfully...");
     // } else {
@@ -156,39 +156,74 @@ export const Home = () => {
   };
   console.log("formData", formData);
   return (
-    <div 
-  className="min-h-screen w-full flex flex-col relative overflow-hidden bg-[#09090b] text-white"
-  style={{
-    backgroundImage: `url(${bg}), url(${glow}), url(${background})`,
-    backgroundPosition: '100%, bottom, 50%',
-    backgroundSize: 'auto, auto, cover',
-    backgroundRepeat: 'no-repeat, no-repeat, no-repeat',
-    backgroundBlendMode: 'normal, normal, normal',
-  }}
->
+    <div
+      className="min-h-screen w-full flex flex-col relative overflow-hidden bg-[#09090b] text-white"
+      style={{
+        backgroundImage: `url(${bg}), url(${glow}), url(${background})`,
+        backgroundPosition: '100%, bottom, 50%',
+        backgroundSize: 'auto, auto, cover',
+        backgroundRepeat: 'no-repeat, no-repeat, no-repeat',
+        backgroundBlendMode: 'normal, normal, normal',
+      }}
+    >
       <Header />
 
       {/* Hero Section */}
       <main className="container mx-auto px-4 pt-20 pb-16">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-            Claim your Membership level
-          </h1>
-          <p className="text-gray-300 text-lg leading-relaxed mb-6">
-            At this page you can claim your NFT reward that will open the doors
-            to exclusive membership levels in Diamond Club and the Diamond
-            Reward program. Your membership level in Diamond Club will give you
-            passive residual community reward. To claim your NFT you need to
-            purchase a certain number of Diamond Tokens. To learn more about how
-            to get the NFT reward you ca
-          </p>
-          <button
-            className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-bold text-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
-            onClick={() => setIsWalletModalOpen(true)}
-          >
-            Claim NFT Reward
-          </button>
-        </div>
+        <section className="mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+            {/* Left: Text content */}
+            <div className="order-2 lg:order-1 text-center lg:text-left px-2 sm:px-0">
+              <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                Claim your Diamond Club membership
+              </h1>
+              <p className="text-gray-300 text-base sm:text-lg mb-6 max-w-xl mx-auto lg:mx-0">
+                Claim an exclusive NFT that represents your membership tier in the Diamond Club. Membership unlocks governance rights, special rewards, and exclusive community access for DIORA token holders.
+              </p>
+
+              <ul className="text-gray-300 text-sm sm:text-base mb-6 space-y-3 list-inside">
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 font-semibold">•</span>
+                  <span><span className="font-semibold text-white">Governance rights</span> — vote in DIORA decisions.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 font-semibold">•</span>
+                  <span><span className="font-semibold text-white">Exclusive perks</span> — Diamond Club privileges and programs.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 font-semibold">•</span>
+                  <span><span className="font-semibold text-white">Passive rewards</span> — earn from community reward pools.</span>
+                </li>
+              </ul>
+
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
+                <button
+                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg hover:scale-105 transform transition"
+                  onClick={() => setIsWalletModalOpen(true)}
+                  aria-haspopup="dialog"
+                >
+                  Connect Wallet
+                </button>
+                <button
+                  className="w-full sm:w-auto px-5 py-3 rounded-full border border-gray-700 text-gray-200 hover:bg-gray-700 transition"
+                  onClick={() => window.scrollTo({ top: 400, behavior: 'smooth' })}
+                >
+                  View Rewards
+                </button>
+              </div>
+            </div>
+
+            {/* Right: Visuals - stacked NFTs */}
+            <div className="order-1 lg:order-2 flex justify-center lg:justify-end px-2">
+              <div className="relative w-56 h-56 sm:w-72 sm:h-72 rounded-2xl bg-gradient-to-br from-gray-900/60 to-black/50 p-3 sm:p-4 ring-1 ring-white/5 backdrop-blur">
+                <img src={blackNFT} alt="Black Diamond" className="absolute left-1 top-6 w-32 h-32 sm:w-36 sm:h-36 object-cover rounded-xl shadow-2xl border-2 border-black" />
+                <img src={greenNFT} alt="Green Diamond" className="absolute right-1 top-2 w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-xl shadow-xl border-2 border-black transform rotate-3" />
+                <img src={blueNFT} alt="Blue Diamond" className="absolute left-8 bottom-2 w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-xl shadow-md border-2 border-black transform -rotate-2" />
+                <div className="absolute -right-6 -bottom-6 text-xs text-gray-400 hidden sm:block">Collect yours</div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Rewards Section */}
         <h2 className="text-2xl font-bold mb-8 text-center">Rewards</h2>
@@ -204,6 +239,9 @@ export const Home = () => {
             />
           ))}
         </div>
+          <p className="text-gray-400 text-sm text-center mt-2 mb-12 max-w-2xl mx-auto italic">
+            *Only given on staking programs that are part of the official Diamond Club Staking and are not based on fixed staking rewards.
+          </p>
 
         {/* How It Works Section */}
         <div className="bg-gray-800 rounded-2xl p-10 mb-20">
@@ -279,15 +317,7 @@ export const Home = () => {
       </main>
 
       {/* Footer */}
-      <div className="bg-gray-800 py-8">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-xl font-bold mb-4">Diamond Token Rewards</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
-            Claim your membership reward and join our community. Once you have
-            enrolled you can earn more rewards from our Diamond Reward program.
-          </p>
-        </div>
-      </div>
+      
     </div>
   );
 };
