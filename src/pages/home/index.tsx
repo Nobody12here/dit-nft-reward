@@ -6,6 +6,7 @@ import blueNFT from "../../../assets/blue.png";
 import blackNFT from "../../../assets/black.png";
 import bg from "../../../assets/bg.png";
 import background from "../../../assets/background.png";
+import sidebar from "../../../assets/sidebar-image.jpeg"
 import glow from "../../../assets/glows.png"
 import flawlessNFT from "../../../assets/flawless.png";
 import { WalletInputModal } from "../../components/WalletInputModal";
@@ -206,21 +207,16 @@ export const Home = () => {
                 </button>
                 <button
                   className="w-full sm:w-auto px-5 py-3 rounded-full border border-gray-700 text-gray-200 hover:bg-gray-700 transition"
-                  onClick={() => window.scrollTo({ top: 400, behavior: 'smooth' })}
+                  onClick={() => window.open("https://diamondtoken.store")}
                 >
-                  View Rewards
+                  Buy DIT
                 </button>
               </div>
             </div>
 
             {/* Right: Visuals - stacked NFTs */}
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end px-2">
-              <div className="relative w-56 h-56 sm:w-72 sm:h-72 rounded-2xl bg-gradient-to-br from-gray-900/60 to-black/50 p-3 sm:p-4 ring-1 ring-white/5 backdrop-blur">
-                <img src={blackNFT} alt="Black Diamond" className="absolute left-1 top-6 w-32 h-32 sm:w-36 sm:h-36 object-cover rounded-xl shadow-2xl border-2 border-black" />
-                <img src={greenNFT} alt="Green Diamond" className="absolute right-1 top-2 w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-xl shadow-xl border-2 border-black transform rotate-3" />
-                <img src={blueNFT} alt="Blue Diamond" className="absolute left-8 bottom-2 w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-xl shadow-md border-2 border-black transform -rotate-2" />
-                <div className="absolute -right-6 -bottom-6 text-xs text-gray-400 hidden sm:block">Collect yours</div>
-              </div>
+              <img src={sidebar} alt=""  />
             </div>
           </div>
         </section>
