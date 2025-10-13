@@ -203,7 +203,7 @@ export const Home = () => {
                   onClick={() => setIsWalletModalOpen(true)}
                   aria-haspopup="dialog"
                 >
-                  Connect Wallet
+                  Claim Membership
                 </button>
                 <button
                   className="w-full sm:w-auto px-5 py-3 rounded-full border border-gray-700 text-gray-200 hover:bg-gray-700 transition"
